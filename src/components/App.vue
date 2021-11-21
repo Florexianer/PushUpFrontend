@@ -6,32 +6,35 @@
   >
     <md-app-toolbar class="md-primary md-dense">
       <div class="md-toolbar-section-start">
-        <router-link to="/" class="md-title">{{ $t('title') }}</router-link>
-      </div>
-
-      <div class="md-subheading md-toolbar-section-end">
-        <router-link to="/info" class="md-title">Info</router-link>
+        <router-link to="/" class="md-title">Reihung</router-link>
       </div>
     </md-app-toolbar>
 
     <md-app-content>
-      <router-view />
+      <radiorow name="Joehama Klint"/>
+      <radiorow name="Kirk dickson"/>
+      <radiorow name="?????"/>
+      <radiorow name="Mike Oxlong"/>
+      <radiorow name="Lea Lo"/>
     </md-app-content>
   </md-app>
 </template>
 
 <script>
+import Radiorow from './Radiorow'
+
 export default {
-    name: 'App',
+  name: 'App',
 
-    components: {
-    },
+  components: {
+    Radiorow,
+  },
 
-    methods: {
-        answer() {
-            return 42
-        },
+  methods: {
+    answer() {
+      return 42
     },
+  },
 }
 </script>
 
