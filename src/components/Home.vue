@@ -1,5 +1,4 @@
 <template>
-  <div>
   <div id="parent">
     <div id="push-up-bkg">
       <div id="grey">
@@ -10,20 +9,52 @@
         </div>
       </div>
     </div>
-    <div>
+    <div id="buttonDiv">
       <button>
         Upload your
         <br>Transformation
       </button>
     </div>
-  </div>
-    whyyyyyy
+    <div class="row" v-for="transformation in transformations">
+      <div class="column">
+      <img :src="imgUrl(transformation.before)">
+      </div>
+        <div class="column">
+      <img :src="imgUrl(transformation.after)">
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
+import Transformation from "@/components/Transformation";
+
+var images = require.context('../data/img/transformations/', false, /\.png$|\.jpg$/)
+
 export default {
-  name: "Home"
+  name: "Home",
+  components: {Transformation},
+
+  data () {
+    return {
+      transformations: {
+        1: {
+          before: 'before1.png',
+          after: 'after1.png'
+        },
+        2: {
+          before: 'before2.png',
+          after: 'after2.png'
+        }
+      }
+    }
+  },
+
+  methods: {
+    imgUrl (path) {
+      return images('./' + path)
+    }
+  }
 }
 </script>
 
@@ -31,6 +62,25 @@ export default {
 html, body {
   margin:0;
   padding:0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 button {
@@ -65,7 +115,6 @@ button {
   height: 50%;
   background-image: url('../data/img/dark_pushup_close.jpg');
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: cover;
 }
 
@@ -77,6 +126,7 @@ button {
 }
 
 #motivation {
+  z-index: 10;
   color: white;
   font-size: 3em;
   line-height: 1.4em;
