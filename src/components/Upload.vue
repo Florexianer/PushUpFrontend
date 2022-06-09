@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="mid">
     <div class="row" id="first">
       <label for="before" class="column1">Before:</label>
       <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="before" class="column2">
@@ -54,7 +54,9 @@ export default {
         reader2.readAsDataURL(afterInputFile[0]);
         reader2.onload = function (e) {
           component.afterImg = e.target.result
-          axios.post('http://localhost/PushUp/index.php', {
+          //console.log(component.afterImg)
+          //console.log(component.beforeImg)
+          axios.post('http://localhost/Projects/PushUpBackend/index.php', {
             before: component.beforeImg,
             after: component.afterImg,
             username: 'Florian'
@@ -83,7 +85,7 @@ export default {
 .column1 {
   float: left;
   width: 30%;
-  padding: 5px;
+  padding: 5px 5px 5px 20px;
 }
 
 .column2 {
@@ -99,9 +101,19 @@ export default {
   display: table;
 }
 
-#first {
-  margin-top: 40px;
+#mid {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translate(0, -50%);
 }
+
+.row {
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 #center {
   display: flex;

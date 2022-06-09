@@ -9,71 +9,23 @@
         </div>
       </div>
     </div>
-    <div id="buttonDiv">
-      <router-link
-          to="upload"
-          class="md-title"
-      >
-        <button>
-          Upload your
-          <br>Transformation
-        </button>
-      </router-link>
-    </div>
-    <div class="row" v-for="transformation in transformations">
-      <div class="column">
-      <img :src="imgUrl(transformation.before)">
-      </div>
-        <div class="column">
-      <img :src="imgUrl(transformation.after)">
-        </div>
-    </div>
   </div>
 </template>
 
 <script>
-import Transformation from "@/components/Transformation";
-
-var images = require.context('../data/img/transformations/', false, /\.png$|\.jpg$/)
-
 export default {
-  name: "Home",
-  components: {Transformation},
-
-  data () {
-    return {
-      transformations: {
-        1: {
-          before: 'before1.png',
-          after: 'after1.png'
-        },
-        2: {
-          before: 'before2.png',
-          after: 'after2.png'
-        }
-      }
-    }
-  },
-
-  methods: {
-    imgUrl (path) {
-      return images('./' + path)
-    }
-  }
+  name: "Home"
 }
 </script>
 
 <style scoped>
-html, body {
-  margin:0;
-  padding:0;
+
+#buttonDiv {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-* {
-  box-sizing: border-box;
-}
-
-
 
 .column {
   float: left;
@@ -97,24 +49,21 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 1.8em;
-  margin: 4px 2px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+
+  transform: translate(0, -50%);
 }
 
 #parent {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
 #push-up-bkg {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   position: relative;
   width: 100%;
   height: 50%;

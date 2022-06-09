@@ -4,7 +4,7 @@
 export default {
     /** Application state */
     state: {
-        images : []
+        loggedIn: false,
     },
 
     /** Methods that read the application state */

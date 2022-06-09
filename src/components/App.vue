@@ -1,21 +1,21 @@
 <template>
   <div id="wrapper">
-    <div>
-      <div class="toolbar">
-        <router-link
-          to="/"
-          class="md-title"
-        >
-          {{ $t('title') }}
-        </router-link>
-      </div>
+    <div class="toolbar">
 
       <div class="md-subheading md-toolbar-section-end">
+        <div class="md-title home left">
+          <router-link
+              to="/"
+              class="md-title"
+          >
+            <img src="../data/img/logo.png" width="170">
+          </router-link>
+        </div>
         <router-link
-          to="/info"
-          class="md-title"
+          to="/transformation"
+          class="md-title right"
         >
-          Info
+          Transformations
         </router-link>
       </div>
     </div>
@@ -39,10 +39,27 @@ export default {
 </script>
 
 <style scoped>
+.home {
+  margin-left: 3%;
+  position: absolute;
+  left: 0!important;
+  align-items: center;
+}
+
+.right {
+  margin-right: 3%;
+  font-size: 1.4em;
+  color: lightgray!important;
+}
+
 .toolbar {
   position: absolute;
-  top: 0;
-  left: 0;
+  background-color: rgba(16, 16, 18, .4);
+  width: 100%;
+  color: white!important;
+  z-index: 100;
+  padding-top: 4%;
+  padding-bottom: 4%;
 }
 
 #wrapper {
