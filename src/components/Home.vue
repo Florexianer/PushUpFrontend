@@ -10,10 +10,15 @@
       </div>
     </div>
     <div id="buttonDiv">
-      <button>
-        Upload your
-        <br>Transformation
-      </button>
+      <router-link
+          to="upload"
+          class="md-title"
+      >
+        <button>
+          Upload your
+          <br>Transformation
+        </button>
+      </router-link>
     </div>
     <div class="row" v-for="transformation in transformations">
       <div class="column">
