@@ -5,7 +5,7 @@
         <div id="motivation">
           See other<br>
           Peoples <br>
-          Progress
+          Transformations
         </div>
       </div>
     </div>
@@ -95,7 +95,7 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.8em;
+  font-size: 1.2em;
 
   transform: translate(0, -50%);
 }
