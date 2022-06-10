@@ -9,48 +9,56 @@
         </div>
       </div>
     </div>
+    <div class="timer">
+      <div>
+        {{time}}
+      </div>
+      <br>
+      <md-button class="md-raised md-primary">Time</md-button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Home"
+  name: "Home",
+  data() {
+    return {
+      time: null,
+      start: null,
+      end: null,
+    }
+  },
+  created() {
+
+    const msMinute = 60 * 1000
+        const msDay = 60 * 60 * 24 * 1000
+      const  a = new Date(2012, 2, 12, 23, 59, 59)
+    const    b = new Date(2012, 2, 12, 23, 60, 59);
+
+    console.log(Math.floor((b - a) / msDay) + ' full days between'); // 364
+    console.log(Math.floor(((b - a) % msDay) / msMinute) + ' full minutes between'); // 0
+
+  }
 }
 </script>
 
 <style scoped>
 
-#buttonDiv {
+.timer {
   height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.column {
-  float: left;
-  width: 50%;
-  padding: 5px;
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+  border: solid;
 }
 
 button {
   background-color: #f44336; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
-  font-size: 1.8em;
-
-  transform: translate(0, -50%);
 }
 
 #parent {
