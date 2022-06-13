@@ -87,17 +87,6 @@ export default {
       invalid: false,
     }
   },
-  created() {
-    const msSec = 1000
-    const msMinute = 60 * 1000
-    const msDay = 60 * 60 * 24 * 1000
-    const a = new Date(2012, 2, 12, 23, 59, 60)
-    const b = new Date(2012, 2, 12, 23, 60, 54);
-
-    console.log(Math.floor((b - a) / msDay) + ' full days between'); // 364
-    console.log(Math.floor(((b - a) % msDay) / msMinute) + ' full minutes between'); // 0
-    console.log(Math.floor(((b - a) % msDay % msMinute) / msSec) + ' full seconds between'); // 0
-  },
 
   methods: {
     count() {
