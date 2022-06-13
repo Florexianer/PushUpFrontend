@@ -54,9 +54,7 @@ export default {
         reader2.readAsDataURL(afterInputFile[0]);
         reader2.onload = function (e) {
           component.afterImg = e.target.result
-          //console.log(component.afterImg)
-          //console.log(component.beforeImg)
-          axios.post('http://localhost/Projects/PushUpBackend/index.php', {
+          axios.post('http://localhost/PushUp/index.php', {
             before: component.beforeImg,
             after: component.afterImg,
             username: 'Florian'
@@ -78,6 +76,11 @@ export default {
 </script>
 
 <style scoped>
+
+input {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }

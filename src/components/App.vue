@@ -57,7 +57,7 @@ export default {
   background-color: rgba(16, 16, 18, .4);
   width: 100%;
   color: white!important;
-  z-index: 100;
+  z-index: 2;
   padding-top: 4%;
   padding-bottom: 4%;
 }
@@ -65,5 +65,9 @@ export default {
 #wrapper {
   width:100%;
   height: 100%;
+}
+
+* {
+  font-family: 'Kdam Thmor Pro', sans-serif;
 }
 </style>

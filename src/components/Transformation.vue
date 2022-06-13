@@ -56,7 +56,7 @@ export default {
   },
 
   created() {
-    axios.get('http://localhost/Projects/PushUpBackend/transformations/index.php')
+    axios.get('http://localhost/PushUp/transformations/index.php')
         .then(response => {
           this.transformations = response.data
           console.log(response.data)
@@ -95,8 +95,8 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.2em;
-
+  font-size: 1.1em;
+  font-family: 'Kdam Thmor Pro', sans-serif;
   transform: translate(0, -50%);
 }
 
