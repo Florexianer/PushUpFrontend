@@ -137,7 +137,7 @@ export default {
 
       if (this.pushUpsMade > 0) {
 
-        axios.post('http://localhost/PushUp/workout/index.php', {
+        axios.post(this.$store.state.server + '/workout/index.php', {
           start: this.start,
           end: this.end,
           pushUps: this.pushUpsMade,
@@ -245,7 +245,7 @@ export default {
   background-color: white;
   position: absolute;
   width: 90%;
-  height: 35%;
+  height: 280px;
   top: 50%;
   left: 50%;
   padding-left: 20px;
