@@ -5,6 +5,7 @@ export default {
     /** Application state */
     state: {
         loggedIn: false,
+        server: 'http://192.168.2.88/Projects/PushUpBackend',
     },
 
     /** Methods that read the application state */

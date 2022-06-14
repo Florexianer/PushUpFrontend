@@ -22,7 +22,7 @@ export default {
     }
   },
   async created() {
-    const workouts = (await axios.get('http://localhost/PushUp/workoutGet/index.php?username=Florian')).data
+    const workouts = (await axios.get(this.$store.state.server + '/workoutGet/index.php?username=Florian')).data
 
     const pushUps = workouts.map(item => item.pushUpCount)
     const length = workouts.map(item => {

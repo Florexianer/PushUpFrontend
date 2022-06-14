@@ -87,17 +87,6 @@ export default {
       invalid: false,
     }
   },
-  created() {
-    const msSec = 1000
-    const msMinute = 60 * 1000
-    const msDay = 60 * 60 * 24 * 1000
-    const a = new Date(2012, 2, 12, 23, 59, 60)
-    const b = new Date(2012, 2, 12, 23, 60, 54);
-
-    console.log(Math.floor((b - a) / msDay) + ' full days between'); // 364
-    console.log(Math.floor(((b - a) % msDay) / msMinute) + ' full minutes between'); // 0
-    console.log(Math.floor(((b - a) % msDay % msMinute) / msSec) + ' full seconds between'); // 0
-  },
 
   methods: {
     count() {
@@ -137,7 +126,7 @@ export default {
 
       if (this.pushUpsMade > 0) {
 
-        axios.post('http://localhost/PushUp/workout/index.php', {
+        axios.post(this.$store.state.server + '/workout/index.php', {
           start: this.start,
           end: this.end,
           pushUps: this.pushUpsMade,
@@ -246,7 +235,7 @@ export default {
   background-color: white;
   position: absolute;
   width: 90%;
-  height: 35%;
+  height: 280px;
   top: 50%;
   left: 50%;
   padding-left: 20px;

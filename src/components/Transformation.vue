@@ -56,10 +56,9 @@ export default {
   },
 
   created() {
-    axios.get('http://localhost/PushUp/transformations/index.php')
+    axios.get(this.$store.state.server + '/transformations/index.php')
         .then(response => {
           this.transformations = response.data
-          console.log(response.data)
         })
   }
 }

@@ -9,10 +9,12 @@
       <label for="after" class="column1">After:</label>
       <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="after" class="column2">
     </div>
-    {{ beforeImg }}
     <div id="center">
       <button @click="sendData">Upload</button>
     </div>
+    <div v-if="success" id="green">The images have been sent</div>
+    <div v-else-if="success === false" id="red">There was and error with the transfer</div>
+
   </div>
 </template>
 
@@ -26,6 +28,7 @@ export default {
     return {
       beforeImg: null,
       afterImg: null,
+      success: null,
     }
   },
 
@@ -45,26 +48,32 @@ export default {
         reader.readAsDataURL(beforeInputFile[0]);
         reader.onload = function (e) {
           component.beforeImg = e.target.result
+
+          let afterInputFile = afterInput.files;
+
+          const reader2 = new FileReader();
+
+          reader2.readAsDataURL(afterInputFile[0]);
+          reader2.onload = function (e) {
+            component.afterImg = e.target.result
+            axios.post(component.$store.state.server + '/index.php', {
+              before: component.beforeImg,
+              after: component.afterImg,
+              username: 'Florian'
+            })
+                .then(function (response) {
+                  if (response.data === 'suc') {
+                    component.success = true
+                  } else {
+                    component.success = false
+                  }
+                }).catch(function (error) {
+              component.success = false
+              console.log(error);
+            });
+          }
         }
 
-        let afterInputFile = afterInput.files;
-
-        const reader2 = new FileReader();
-
-        reader2.readAsDataURL(afterInputFile[0]);
-        reader2.onload = function (e) {
-          component.afterImg = e.target.result
-          axios.post('http://localhost/PushUp/index.php', {
-            before: component.beforeImg,
-            after: component.afterImg,
-            username: 'Florian'
-          })
-              .then(function (response) {
-                console.log(response);
-              }).catch(function (error) {
-            console.log(error);
-          });
-        }
       } else {
         alert('You have to select both before and after picture')
       }
@@ -76,6 +85,14 @@ export default {
 </script>
 
 <style scoped>
+
+#green {
+  color: limegreen;
+}
+
+#red {
+  color: #f44336;
+}
 
 input {
   font-family: 'Kdam Thmor Pro', sans-serif;
@@ -115,7 +132,6 @@ input {
   align-items: center;
   justify-content: center;
 }
-
 
 
 #center {
