@@ -1,10 +1,10 @@
 <template>
   <div id="first">
-    <div>
+    <div class="sizeChart">
       <canvas id="pMin" style="width:100%;max-width:700px"></canvas>
     </div>
-    <div>
-      <canvas id="pSession" style="width:100%;max-width:700px"></canvas>
+    <div class="sizeChart" id="marginTop">
+      <canvas id="pSession" style="width:100%;max-width:700px;height: 300px"></canvas>
     </div>
   </div>
 </template>
@@ -66,7 +66,9 @@ export default {
         title: {
           display: true,
           text: 'Push ups / min'
-        }
+        },
+        responsive: true,
+        maintainAspectRatio: false
       }
     })
 
@@ -85,7 +87,9 @@ export default {
         title: {
           display: true,
           text: 'Push ups / Session'
-        }
+        },
+        responsive: true,
+        maintainAspectRatio: false
       }
     })
   },
@@ -96,6 +100,15 @@ export default {
 </script>
 
 <style scoped>
+
+#marginTop {
+  margin-top: 50px;
+}
+
+.sizeChart {
+  height: 300px;
+}
+
 #first {
   margin-top: 20%;
   position: absolute;

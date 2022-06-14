@@ -23,7 +23,7 @@
       </div>
       <br>
       <div id="flex">
-        <md-button class="md-raised md-icon-button big black" id="buttonZ" @click="count">
+        <md-button class="md-raised md-icon-button big black" id="buttonZ" @click="count" v-if="!continueTimer">
           <md-icon class="white">play_arrow</md-icon>
         </md-button>
         <md-button class="md-raised md-primary md-icon-button big black" @click="stop" v-if="continueTimer">
@@ -82,7 +82,7 @@ export default {
         min: null,
         sec: null,
       },
-      continueTimer: null,
+      continueTimer: false,
       pushUpsMade: null,
       invalid: false,
     }
@@ -153,6 +153,7 @@ export default {
             }).catch(function (error) {
           console.log(error);
         });
+        this.closeOverlay()
       } else {
         this.invalid = true
       }
@@ -251,7 +252,7 @@ export default {
   padding-left: 20px;
   padding-right: 20px;
   transform: translate(-50%, -50%);
-
+  border-radius: 5px;
 }
 
 #overlay {
